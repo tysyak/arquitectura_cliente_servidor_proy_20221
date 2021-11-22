@@ -1,0 +1,26 @@
+#+TITLE: ARQUITECTURA CLIENTE–SERVIDOR: PROYECTO FINAL
+#+author: Cristian Romero Andrade
+#+email: mascrit@gmail.com
+
+* Proyecto Final
+El proyecto consiste en un Cliente-Servidor que ejecute comandos remotamente, como ocurre con un Cliente-Servidor =ssh=.
++ [ ] La comunicación entre el Cliente y el Servidor debe ser vía sockets TCP (Sockets Internet)
++ [ ] El programa Servidor debe iniciarse en el host servidor (en el puerto que decidas).
++ [ ] El programa Cliente debe iniciarse en el host cliente (pasando el dominio o IP y el puerto desde línea decomandos).
++ [ ] El Servidor acepta la conexión.
++ [ ] Una vez aceptada la conexión, el Cliente escribe el comando y lo envía por el socket al Servidor (Paso 1 de la imagen).
++ [ ] El Servidor recibe el comando y lo ejecuta en sistema (Paso 2 de la imagen).
++ [ ] El Servidor debe devolver la salida al cliente (Paso 3 de la imagen).
+  [[./img/cliente-servidor.png]]
+
+**  Consideraciones
++ Puede elaborarse de manera individual o equipo, máximo 2 integrantes.
++ El proyecto debe funcionar para diferentes comandos básicos con sus opciones, como =ls -l=, =ps –e –o columnas=, =pwd=, =date=, =cat archivo=, =whoami=, etc., es decir, comandos cuya salida se direccione a salida estándar, _nada de comandos redireccionados a archivos ni comandos con salida dinámica (por ejemplo, =top=)_.
++ Proyecto en ambiente Linux, MacOS
++ Programado en lenguaje C (*Cualquier otro lenguaje, se calificará sobre calificación máxima de 6*). Sí está permitido el uso del IDE de su preferencia.
++ Código comentado.
++ Entregar PDF con códigos fuente dentro del PDF, así como capturas de pantalla de, al menos, 1 prueba.
++ Además del PDF, entregar los archivos =*.c= de los códigos fuente al correo [[mailto:carlos@fi-b.unam.mx][carlos@fi-b.unam.mx]]. _Favor de no enviar ejecutables porque el servidor de correo lo elimina por seguridad_.
++ Enviar mensaje vía App de mensajería instantánea al 5517985738 para concertar una reunión de zoom de manera individual a cada alumno o a cada equipo según sea el caso. Ahí revisaré el proyecto en ejecución (*Para la revisión abran su cámara para conocerlos en vivo, al menos, esa ocasión*).
++ La revisión consiste en 2 pruebas: una prueba donde Cliente y Servidor estén en tu host local y otra prueba donde yo tomaré tu Servidor, lo coloco en un host remoto y desde tu equipo local te conectas remotamente a tu Servidor.
++ Se entrega en el transcurso de las 2 semanas de exámenes finales.
