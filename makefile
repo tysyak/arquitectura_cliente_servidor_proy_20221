@@ -5,20 +5,21 @@
 # @version 0.1
 
 CC = gcc
-CFLAGS = -Wall -std=c2x -pthread
-OBJ = cliente servidor
+CFLAGS = -Wall -std=c2x
+LIBS = -pthread
+TARGET = cliente servidor
 
-default: all
-
-all: $(OBJ)
+all: $(TARGET)
 
 cliente:
-	gcc -std=c2x -pthread -o cliente cliente.c ccliente.c
+	$(CC) $(CFLAGS) $(LIBS) -o cliente cliente.c ccliente.c
+
 servidor:
-	gcc -std=c2x -pthread -o servidor servidor.c sservidor.c
+	$(CC) $(CFLAGS) $(LIBS) -o servidor servidor.c sservidor.c
+
 
 clean:
-	rm -rf $(OBJ)
+	rm -rf $(TARGET) *.o
 
 .PHONY: all clean
 
