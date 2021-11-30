@@ -4,10 +4,10 @@
 
 * Proyecto Final
 El proyecto consiste en un Cliente-Servidor que ejecute comandos remotamente, como ocurre con un Cliente-Servidor =ssh=.
-+ [ ] La comunicación entre el Cliente y el Servidor debe ser vía sockets TCP (Sockets Internet)
-+ [ ] El programa Servidor debe iniciarse en el host servidor (en el puerto que decidas).
-+ [ ] El programa Cliente debe iniciarse en el host cliente (pasando el dominio o IP y el puerto desde línea decomandos).
-+ [ ] El Servidor acepta la conexión.
++ [X] La comunicación entre el Cliente y el Servidor debe ser vía sockets TCP (Sockets Internet)
++ [X] El programa Servidor debe iniciarse en el host servidor (en el puerto que decidas). *3490*
++ [X] El programa Cliente debe iniciarse en el host cliente (pasando el dominio o IP y el puerto desde línea decomandos).
++ [X] El Servidor acepta la conexión.
 + [ ] Una vez aceptada la conexión, el Cliente escribe el comando y lo envía por el socket al Servidor (Paso 1 de la imagen).
 + [ ] El Servidor recibe el comando y lo ejecuta en sistema (Paso 2 de la imagen).
 + [ ] El Servidor debe devolver la salida al cliente (Paso 3 de la imagen).
