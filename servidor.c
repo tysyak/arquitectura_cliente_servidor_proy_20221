@@ -24,10 +24,10 @@ int main()
 			printf("\e[32mConexión exitosa\e[0m\n");
 
 		serv->ret = pthread_create(&serv->thread_id, NULL, thread_function, serv);
-		while(strncmp(serv->write_buffer, ":q", 3) != 0 )
+		while(strncmp(serv->write_buffer, ":q", 2) != 0 )
 		{
 			strcpy(serv->write_buffer, "\0" );
-			printf("Servidor(tu)>");
+			printf("\nServidor(tu)>");
 			fgets(serv->write_buffer, size, stdin);
 			serv->bytes = send(serv->client_fd, serv->write_buffer, sizeof(serv->write_buffer), 0);
 

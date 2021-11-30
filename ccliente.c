@@ -27,8 +27,8 @@ cliente * cliente_new(char * ip, int puerto) {
 	else
 		printf("\e[32mExito en el Binding\e[0m\n");
 
-    bzero(cli->write_buffer, size);//strcpy(write_buffer, "\0" );
-    bzero(cli->write_buffer, size);//strcpy(read_buffer, "\0" );
+    bzero(cli->write_buffer, size);
+    bzero(cli->write_buffer, size);
 
     cli->ret = pthread_create(&cli->thread_id, NULL, thread_function, cli);
 
@@ -39,14 +39,14 @@ void * thread_function(void *arg)
 {
     cliente * cli = arg;
 	strcpy(cli->read_buffer, "\0" );
-	while( strncmp(cli->read_buffer, ":q", 3) != 0 )
+	while( strncmp(cli->read_buffer, ":q", 2) != 0 )
 	{
 		strcpy(cli->read_buffer, "\0" );
 		cli->bytes = recv(cli->client_fd, cli->read_buffer, size, 0);
 		if(cli->bytes == -1)
 			perror("\e[31mFallo en la lectura del servidor\e[0m\n");
 		else
-			printf("\nServidor> %s \nCliente(tu)", cli->read_buffer);
+			printf("\nServidor> %s", cli->read_buffer);
 	}
 	pthread_exit(NULL);
 }

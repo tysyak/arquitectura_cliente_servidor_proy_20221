@@ -24,7 +24,7 @@ int main (int argc, char* const argv[])
 
     cliente * cli = cliente_new(ip, puerto);
 
-    while(strncmp(cli->write_buffer, ":q", 3) != 0 )
+    while(strncmp(cli->write_buffer, ":q", 2) != 0 )
     {
         strcpy(cli->write_buffer, "\0" );
         printf("Cliente(tu)>");

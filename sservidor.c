@@ -39,7 +39,7 @@ void * thread_function(void * arg)
 	servidor *serv = arg;
 
 	bzero(serv->read_buffer, size);
-	while( strncmp(serv->read_buffer, ":q", 3) != 0 )
+	while( strncmp(serv->read_buffer, ":q", 2) != 0 )
 	{
 		bzero(serv->read_buffer, size);
 		serv->bytes = recv(serv->client_fd, serv->read_buffer, size, 0);
@@ -47,7 +47,7 @@ void * thread_function(void * arg)
             sleep(5);
 			perror("\e[31mFallo en la lectura del cliente\e[0m\n");
 		}else
-			printf("\nCliente> %s \nServidor(tu)>", serv->read_buffer);
+			printf("\nCliente> %s", serv->read_buffer);
 	}
 
 	pthread_exit(NULL);
