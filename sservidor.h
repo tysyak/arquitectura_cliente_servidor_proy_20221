@@ -21,7 +21,7 @@ typedef struct sServidor {
     int client_fd;
     int ret;
     int bytes;
-    int client_len;
+    socklen_t client_len;
 	struct sockaddr_in server_addrobj;
     struct sockaddr_in client_addrobj;
 
