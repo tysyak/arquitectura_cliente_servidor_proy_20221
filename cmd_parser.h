@@ -9,6 +9,8 @@ typedef struct cmd_parser {
     char argumentos[size];
 } cmd;
 
-int ejecutar(char * ejecutar);
+void ejecutar(char * ejecutar);
+void strip_chars(char *str, char strip);
+int spawn (char* program, char** arg_list);
 
 #endif // CMD_PARSER_H
