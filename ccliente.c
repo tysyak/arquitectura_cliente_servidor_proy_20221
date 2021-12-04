@@ -46,7 +46,7 @@ void * thread_function(void *arg)
 		if(cli->bytes == -1)
 			perror("\e[31mFallo en la lectura del servidor\e[0m\n");
 		else
-			printf("\nServidor> %s", cli->read_buffer);
+			printf("%s", cli->read_buffer);
 	}
 	pthread_exit(NULL);
 }

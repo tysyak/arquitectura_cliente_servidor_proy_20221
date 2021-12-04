@@ -26,8 +26,8 @@ int main (int argc, char* const argv[])
 
     while(strncmp(cli->write_buffer, ":q", 2) != 0 )
     {
+        printf("> ");
         strcpy(cli->write_buffer, "\0" );
-        printf("Cliente(tu)>");
         fgets(cli->write_buffer, size, stdin);
         cli->bytes = send(cli->client_fd, cli->write_buffer, sizeof(cli->write_buffer), 0);
         if(cli->bytes == -1)
