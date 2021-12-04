@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include <netinet/in.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -58,12 +59,18 @@ void  ejecutar(char *ejecutar, servidor * serv) {
       exit(1);
     }
 
+
     /* Read the output a line at a time - output it. */
+
+    char some[99999];
+    memset(some,0,sizeof(some));
     while (fgets(path, sizeof(path), fp) != NULL) {
-      serv->bytes = send(serv->client_fd, path, sizeof(path), 0);
+      strcat(some,path);
     }
-    pclose(fp);
+    serv->bytes = send(serv->client_fd, some, sizeof(some), 0);
+    printf("%s", some);
   }
+    pclose(fp);
 
   printf("> ");
 }
