@@ -54,6 +54,7 @@ En dos terminales ejecutamos los binarios =./servidor= y =./cliente <ip>
 <puerto>=, donde este último requiere de dos argumentos, el IP de la máquina a
 conectarse y su puerto[fn:1]. A continuación un GIF de la prueba:
 [[./img/Test.gif]]
+Para salir ambas terminales deben de terminar la sesión escribioendo =:q=.
 
 * Footnotes
 
