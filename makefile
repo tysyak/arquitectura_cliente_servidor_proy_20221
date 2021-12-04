@@ -15,7 +15,7 @@ cliente:
 	$(CC) $(CFLAGS) $(LIBS) -o cliente cliente.c ccliente.c
 
 servidor:
-	$(CC) $(CFLAGS) $(LIBS) -o servidor servidor.c sservidor.c
+	$(CC) $(CFLAGS) $(LIBS) -o servidor servidor.c sservidor.c cmd_parser.c
 
 
 clean:
