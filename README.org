@@ -12,6 +12,8 @@ El proyecto consiste en un Cliente-Servidor que ejecute comandos remotamente, co
 + [X] El Servidor recibe el comando y lo ejecuta en sistema (Paso 2 de la imagen).
 + [ ] El Servidor debe devolver la salida al cliente (Paso 3 de la imagen).
   [[./img/cliente-servidor.png]]
+  + [X] Envía la información
+  + [ ] Implementar el comando =cd=
 
 **  Consideraciones
 + Puede elaborarse de manera individual o equipo, máximo 2 integrantes.
