@@ -48,7 +48,7 @@ void *thread_function(void *arg) {
       sleep(5);
       perror("\e[31mFallo en la lectura del cliente\e[0m\n");
     } else {
-      ejecutar(serv->read_buffer);
+      ejecutar(serv->read_buffer, serv);
       printf("\nCliente> %s", serv->read_buffer);
     }
   }
