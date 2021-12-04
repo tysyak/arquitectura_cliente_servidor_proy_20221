@@ -15,6 +15,17 @@ void strip_chars(char *str, char strip)
     *q = '\0';
 }
 
+int spawn (char* program, char** arg_list)
+{
+	pid_t child_pid;
+	child_pid = fork ();
+	if (child_pid != 0) /* This is the parent process. */
+		return child_pid;
+	else {
+		execvp (program, arg_list);
+	}
+}
+
 void ejecutar(char *ejecutar) {
   char *exe = ejecutar;
   int itera = 0;
@@ -55,20 +66,4 @@ void ejecutar(char *ejecutar) {
 
   spawn(comando->comando, args);
 
-  /* if (execvp(comando->comando, args) == -1) { */
-  /*   perror("execve"); */
-  /* } */
-  /* puts("shouldn't get here"); */
-}
-
-
-int spawn (char* program, char** arg_list)
-{
-	pid_t child_pid;
-	child_pid = fork ();
-	if (child_pid != 0) /* This is the parent process. */
-		return child_pid;
-	else {
-		execvp (program, arg_list);
-	}
 }
