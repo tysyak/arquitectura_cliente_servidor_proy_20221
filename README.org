@@ -2,18 +2,32 @@
 #+author: Cristian Romero Andrade
 #+email: mascrit@gmail.com
 
+* Tabla de Contenidos
+:PROPERTIES:
+:TOC:      :include all
+:END:
+:CONTENTS:
+- [[#tabla-de-contenidos][Tabla de Contenidos]]
+- [[#proyecto-final][Proyecto Final]]
+  - [[#consideraciones][Consideraciones]]
+- [[#instrucciones][Instrucciones]]
+  - [[#construcción][Construcción]]
+  - [[#ejecución][Ejecución]]
+- [[#footnotes][Footnotes]]
+:END:
+
 * Proyecto Final
 El proyecto consiste en un Cliente-Servidor que ejecute comandos remotamente, como ocurre con un Cliente-Servidor =ssh=.
 + [X] La comunicación entre el Cliente y el Servidor debe ser vía sockets TCP (Sockets Internet)
 + [X] El programa Servidor debe iniciarse en el host servidor (en el puerto que decidas). *3490*
-+ [X] El programa Cliente debe iniciarse en el host cliente (pasando el dominio o IP y el puerto desde línea decomandos).
++ [X] El programa Cliente debe iniciarse en el host cliente (pasando el dominio o IP y el puerto desde línea de comandos).
 + [X] El Servidor acepta la conexión.
 + [X] Una vez aceptada la conexión, el Cliente escribe el comando y lo envía por el socket al Servidor (Paso 1 de la imagen).
 + [X] El Servidor recibe el comando y lo ejecuta en sistema (Paso 2 de la imagen).
-+ [ ] El Servidor debe devolver la salida al cliente (Paso 3 de la imagen).
++ [X] El Servidor debe devolver la salida al cliente (Paso 3 de la imagen).
   [[./img/cliente-servidor.png]]
   + [X] Envía la información
-  + [ ] Implementar el comando =cd=
+  + [X] Implementar el comando =cd=
 
 **  Consideraciones
 + Puede elaborarse de manera individual o equipo, máximo 2 integrantes.
@@ -26,3 +40,21 @@ El proyecto consiste en un Cliente-Servidor que ejecute comandos remotamente, co
 + Enviar mensaje vía App de mensajería instantánea al 5517985738 para concertar una reunión de zoom de manera individual a cada alumno o a cada equipo según sea el caso. Ahí revisaré el proyecto en ejecución (*Para la revisión abran su cámara para conocerlos en vivo, al menos, esa ocasión*).
 + La revisión consiste en 2 pruebas: una prueba donde Cliente y Servidor estén en tu host local y otra prueba donde yo tomaré tu Servidor, lo coloco en un host remoto y desde tu equipo local te conectas remotamente a tu Servidor.
 + Se entrega en el transcurso de las 2 semanas de exámenes finales.
+
+* Instrucciones
+** Construcción
+Podemos generar los ejecutables ejecutando el comando =make= o bien ejecutar los
+siguientes comandos:
+#+begin_src shell
+gcc -pthread -Wall -Iheaders/ -std=c2x core/cliente/ccliente.c core/cliente/cliente.c  -o cliente \
+gcc -pthread -Wall -Iheaders/ -std=c2x core/servidor/servidor.c core/servidor/sservidor.c core/servidor/cmd_parser.c  -o servidor
+#+end_src
+** Ejecución
+En dos terminales ejecutamos los binarios =./servidor= y =./cliente <ip>
+<puerto>=, donde este último requiere de dos argumentos, el IP de la máquina a
+conectarse y su puerto[fn:1]. A continuación un GIF de la prueba:
+[[./img/Test.gif]]
+
+* Footnotes
+
+[fn:1]Hay que especificar el puerto *3490*.
