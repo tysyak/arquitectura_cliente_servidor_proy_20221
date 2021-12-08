@@ -30,11 +30,14 @@ void  ejecutar(char *ejecutar, servidor * serv) {
   char path[size];
 
   strip_chars(exe, '\n');
+  // Sanitizamos comando
 
   strcpy(comando->completo_comando, exe);
   tamanio_cadena = strlen(comando->completo_comando);
+  // Creamos el comando completo y definimos el tamaño de la cadena
 
 
+  /* Itermaos el comando. Separamos el comando y los argumentos */
   while(itera <= tamanio_cadena) {
     letter = comando->completo_comando[itera];
     if (letter == ' ') {
@@ -54,23 +57,28 @@ void  ejecutar(char *ejecutar, servidor * serv) {
     chdir(comando->argumentos);
     return;
   }
+  // Atrapamos el comando `cd`
 
   fp = popen(comando->completo_comando, "r");
+  // Abrimos flujo pipe de la ejecución del comando
   if (fp == NULL) {
     printf("Failed to run command\n");
     exit(1);
   }
+  // Cachamos errores
 
-  /* Read the output a line at a time - output it. */
 
-  char some[size * 1028];
+  char some[size * 1028]; // declaración poco ortodoxa de la salida del comando
   memset(some, 0, sizeof(some));
+
+  /* Llenamos la cadena de caracteres con el flujo que declaramos anteriormente */
   while (fgets(path, sizeof(path), fp) != NULL) {
     strcat(some, path);
   }
   serv->bytes = send(serv->client_fd, some, sizeof(some), 0);
   serv->bytes = send(serv->client_fd , ">", sizeof(">"), 0);
   pclose(fp);
+  // Enviamos al cliente y cerramos conexión
 
   printf("> ");
 }
