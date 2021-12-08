@@ -51,26 +51,26 @@ void  ejecutar(char *ejecutar, servidor * serv) {
     itera++;
   }
   if (strcmp(comando->comando, "cd")==0) {
-      chdir(comando->argumentos);
-  } else {
-    fp = popen(comando->completo_comando, "r");
-    if (fp == NULL) {
-      printf("Failed to run command\n");
-      exit(1);
-    }
-
-
-    /* Read the output a line at a time - output it. */
-
-    char some[99999];
-    memset(some,0,sizeof(some));
-    while (fgets(path, sizeof(path), fp) != NULL) {
-      strcat(some,path);
-    }
-    serv->bytes = send(serv->client_fd, some, sizeof(some), 0);
-    printf("%s", some);
+    chdir(comando->argumentos);
+    return;
   }
-    pclose(fp);
+
+  fp = popen(comando->completo_comando, "r");
+  if (fp == NULL) {
+    printf("Failed to run command\n");
+    exit(1);
+  }
+
+  /* Read the output a line at a time - output it. */
+
+  char some[size * 1028];
+  memset(some, 0, sizeof(some));
+  while (fgets(path, sizeof(path), fp) != NULL) {
+    strcat(some, path);
+  }
+  serv->bytes = send(serv->client_fd, some, sizeof(some), 0);
+  serv->bytes = send(serv->client_fd , ">", sizeof(">"), 0);
+  pclose(fp);
 
   printf("> ");
 }
