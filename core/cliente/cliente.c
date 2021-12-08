@@ -18,6 +18,7 @@ int main(int argc, char *const argv[]) {
   // Verificamos levemente los argumonetos que nos pasaron
 
   char *ip = argv[1];
+  char *p; // auxiliar para strtol
   const int puerto = strtol(argv[2], &p, 10);
   // Asignamos el ip como cadena de caracteres y el puerto como entero
 
