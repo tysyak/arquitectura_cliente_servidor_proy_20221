@@ -11,8 +11,10 @@ cliente * cliente_new(char * ip, int puerto) {
     cliente* cli = malloc(sizeof(cliente));
 
     cli->client_fd = socket(AF_INET, SOCK_STREAM, 0);
-	if(cli->client_fd == -1)
+	if(cli->client_fd == -1) {
 		perror("\e[31mCreación del socket fallo\e[0m\n");
+        exit(1);
+    }
 	else
 		printf("\e[32mExito en la creación del socket\e[0m\n");
 
@@ -22,12 +24,13 @@ cliente * cliente_new(char * ip, int puerto) {
 
     cli->ret = connect(cli->client_fd, (struct sockaddr *)&cli->client_addrobj, sizeof(cli->client_addrobj) );
 
-	if(cli->ret == -1)
-		perror("\e[31mBinding falló\e[0m\n");
+	if(cli->ret == -1) {
+		perror("\e[31mBinding falló\e[0m: No se halló conexión al servidor\n");
+        exit(1);
+    }
 	else
 		printf("\e[32mExito en el Binding\e[0m\n");
 
-    bzero(cli->write_buffer, size);
     bzero(cli->write_buffer, size);
 
     cli->ret = pthread_create(&cli->thread_id, NULL, thread_function, cli);
