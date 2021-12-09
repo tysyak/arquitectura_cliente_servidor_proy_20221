@@ -45,9 +45,9 @@ El proyecto consiste en un Cliente-Servidor que ejecute comandos remotamente, co
 ** Construcción
 Podemos generar los ejecutables ejecutando el comando =make= o bien ejecutar los
 siguientes comandos:
-#+begin_src shell
-gcc -pthread -Wall -Iheaders/ -std=c2x core/cliente/ccliente.c core/cliente/cliente.c  -o cliente \
-gcc -pthread -Wall -Iheaders/ -std=c2x core/servidor/servidor.c core/servidor/sservidor.c core/servidor/cmd_parser.c  -o servidor
+#+begin_src shell-session
+$ gcc -pthread -Wall -Iheaders/ -std=c2x core/cliente/ccliente.c core/cliente/cliente.c  -o cliente 
+$ gcc -pthread -Wall -Iheaders/ -std=c2x core/servidor/servidor.c core/servidor/sservidor.c core/servidor/cmd_parser.c  -o servidor
 #+end_src
 ** Ejecución
 En dos terminales ejecutamos los binarios =./servidor= y =./cliente <ip>
